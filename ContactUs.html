@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chris Evans' Fan Club</title>
+    <link rel="stylesheet" href="css/assignment.css" type="text/css" />
+
+    <script>
+      // Initialize and add the map
+      function initMap() {
+        // The location of Uluru
+        const uluru = { lat: 22.342603706494966, lng: 114.10628199661787 };
+        // The map, centered at Uluru
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 16.5,
+          center: uluru,
+        });
+        // The marker, positioned at Uluru
+        const marker = new google.maps.Marker({
+          position: uluru,
+          map: map,
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>
+          <h1><i>Chris Evans Fan Club</i></h1>
+        </td>
+        <!-- <td><img src="img/banner.jpg" height="75" /></td>
+        <td><img src="img/banner2.jpg" height="75" /></td>
+        <td><img src="img/banner3.jpg" height="75" /></td>
+        <td><img src="img/banner4.jpg" height="75" /></td> -->
+        <td>
+          <div id="flex-container">
+            <img src="img/banner.jpg" />
+          </div>
+        </td>
+      </tr>
+    </table>
+    <!--Menu bar-->
+    <div class="topnav">
+      <a href="Index.html">Home</a>
+      <a href="About.html">About</a>
+      <!-- <div class="subnav">
+        <a class="subnavbtn">About</a>
+        <div class="subnav-content">
+          <a href="#company">Company</a>
+          <a href="#team">Team</a>
+          <a href="#careers">Careers</a>
+        </div>
+      </div> -->
+      <a href="Registration.html">Registration</a>
+      <a class="active" href="ContactUs.html">Contact Us</a>
+    </div>
+    <!--Menu bar-->
+    <h1 style="padding-left: 2.5em">We are here</h1>
+    <table border="1px">
+      <tr>
+        <td>Location:</td>
+        <td>20 Tsing Yi Road, Tsing Yi Island, New Territories</td>
+      </tr>
+      <tr>
+        <td>Telephone:</td>
+        <td>2436 8333</td>
+      </tr>
+    </table>
+    <img src="gif/down.gif" height="75" style="padding-left: 9em" />
+    <br />
+    <div id="map" style="width: 400px; height: 200px; left: 10px"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8GLBST-DJ_VhSjXnfXJzdZ1D_kp8lCO4&callback=initMap"></script>
+    <br />
+    
+  </body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chris Evans' Fan Club</title>
+    <link rel="stylesheet" href="css/assignment.css" type="text/css" />
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script>
+      function registration() {
+        var frm = document.getElementById("registration-form");
+        var tel = document.getElementById("tel");
+        var id = document.getElementById("ID");
+        var name = document.getElementById("name");
+
+        if (id.value.length != 9) {
+          id.setCustomValidity("9 numbers required");
+          id.reportValidity();
+        } else if (tel.value.length != 8) {
+          tel.setCustomValidity("8 numbers required");
+          tel.reportValidity();
+        } else {
+          alert(
+            name.value +
+              "! Welcome to Chris Evans' Fan Club! We are looking forward to seeing you soon!"
+          );
+          frm.reset(); // Reset all form data
+        }
+        return false; // Prevent page refresh
+      }
+      // $(document).ready(function () {
+      //   //called when key is pressed in textbox
+      //   $("#tel").keypress(function (e) {
+      //     var id = e.target.id;
+      //     var error = document.getElementById(id);
+      //     //if the letter is not digit then display error and don't type anything
+      //     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+      //       //display error message
+      //       //$("#errmsg").html("Digits Only").show().fadeOut("slow");
+      //       error.setCustomValidity("Digits only");
+      //       error.reportValidity();
+      //       return false;
+      //     } else {
+      //       error.setCustomValidity("");
+      //       error.reportValidity();
+      //     }
+      //   });
+      // });
+      function IsNumeric(evt) {
+        evt = evt ? evt : window.event;
+        var charCode = evt.which ? evt.which : evt.keyCode;
+        var error = document.getElementById(evt.target.id);
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+          error.setCustomValidity("Digits only");
+          error.reportValidity();
+          return false;
+        }
+        error.setCustomValidity("");
+        //error.reportValidity();
+        return true;
+      }
+      // function checkNumeric() {
+      //   var tel = document.getElementById("tel");
+      //   var id = document.getElementById("ID");
+      //   if (tel.value.length != 8) {
+      //     tel.setCustomValidity("8 numbers required");
+      //     tel.reportValidity();
+      //     return false;
+      //   } else if (id.value.length != 9) {
+      //     id.setCustomValidity("9 numbers required");
+      //     id.reportValidity();
+      //     return false;
+      //   } else {
+      //     registration();
+      //   }
+      // }
+
+      function IsEnglishLetter(evt) {
+        evt = evt ? evt : window.event;
+        var charCode = evt.which ? evt.which : evt.keyCode;
+        var error = document.getElementById(evt.target.id);
+        //var firstCapital = "[A-Z][a-z]*";
+        // var englishWord = "[A-Z][a-z]*[a-zA-Z\s]+";
+        // var englishWord2 = "[A-Za-z]+";
+        // var englishAlphabetAndWhiteSpace = /[A-Za-z ]/g;
+        //var check = true;
+        // if (!error.value.match(firstCapital) && error.value.charAt(0) != "") {
+        //   error.setCustomValidity("Capital first character");
+        //   error.reportValidity();
+        // } else
+        if (
+          (charCode >= 33 && charCode <= 64) ||
+          (charCode >= 91 && charCode <= 96) ||
+          (charCode >= 123 && charCode <= 126)
+        ) {
+          error.setCustomValidity("Please input English word");
+          error.reportValidity();
+          // check = false;
+          return false;
+        }
+        error.setCustomValidity("");
+        return true;
+      }
+
+      function checkEmpty() {
+        var tel = document.getElementById("tel");
+        var id = document.getElementById("ID");
+        var name = document.getElementById("name");
+        if (name.value != "") {
+          name.setCustomValidity("");
+        }
+        if (tel.value != "") {
+          tel.setCustomValidity("");
+        }
+        if (id.value != "") {
+          id.setCustomValidity("");
+        }
+        return true;
+      }
+    </script>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>
+          <h1><i>Chris Evans Fan Club</i></h1>
+        </td>
+        <!-- <td><img src="img/banner.jpg" height="75" /></td>
+        <td><img src="img/banner2.jpg" height="75" /></td>
+        <td><img src="img/banner3.jpg" height="75" /></td>
+        <td><img src="img/banner4.jpg" height="75" /></td> -->
+        <td>
+          <div id="flex-container">
+            <!-- <img src="img/banner.jpg" height="75" />
+            <img src="img/banner2.jpg" height="75" />
+            <img src="img/banner3.jpg" height="75" />
+            <img src="img/banner4.jpg" height="75" /> -->
+            <img src="img/banner.jpg" />
+          </div>
+        </td>
+      </tr>
+    </table>
+    <div class="topnav">
+      <a href="Index.html">Home</a>
+      <a href="About.html">About</a>
+      <a class="active" href="Registration.html">Registration</a>
+      <a href="ContactUs.html">Contact Us</a>
+    </div>
+    
+    <h1>Registration</h1>
+    <!--Form-->
+    <form id="registration-form" action="javascript:registration()">
+      <fieldset style="width: 400px">
+        <legend>Form Details</legend>
+        <table>
+          <tr>
+            <td style="text-align: left">Student Name:<span>*</span></td>
+            <td>
+              &nbsp;&nbsp;
+              <input
+                type="text"
+                name="name"
+                id="name"
+                onkeypress="return IsEnglishLetter(event);"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align: left">Student ID:<span>*</span></td>
+            <td>
+              &nbsp;&nbsp;
+              <input
+                type="text"
+                name="ID"
+                id="ID"
+                onkeypress="return IsNumeric(event);"
+                maxlength="9"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align: left">Telephone:<span>*</span></td>
+            <td>
+              &nbsp;&nbsp;
+              <input
+                type="text"
+                name="tel"
+                id="tel"
+                onkeypress="return IsNumeric(event);"
+                maxlength="8"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align: left">Email Address:<span>*</span></td>
+            <td>
+              &nbsp;&nbsp;
+              <input type="email" name="email" id="email" required />
+            </td>
+          </tr>
+        </table>
+        <small><span>*</span> required field</small>
+      </fieldset>
+      <input type="submit" value="Submit" onclick="return checkEmpty();" />
+      <input type="reset" value="Clear" />
+    </form>
+    <!--Form End-->
+    <!--Content-->
+    <img src="img/IwantU.jpg" height="275" />
+    <!---->
+  </body>
+</html>
