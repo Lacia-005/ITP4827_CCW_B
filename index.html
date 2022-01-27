@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chris Evans' Fan Club</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="css/assignment.css" type="text/css" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-FZLDLTHQZS"
+    ></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script>
+      function add() {
+        let nickname = $("input[name='nickname']").val();
+        let content = $("textarea[name='content']").val();
+        var newItem = document.createElement("div");
+        // $("#discussion tr:last").after(
+        //   `<tr align="left"><td>${nickname}</td></tr><tr><td>${content}</td></tr>);`
+        discussion.innerHTML =
+          `<hr/>${nickname}:<br/>${content}` + discussion.innerHTML;
+        var frm = document.getElementById("discussion-form");
+        frm.reset(); // Reset all form data
+        return false; // Prevent page refresh
+      }
+      // function myFunction() {
+      //   var x = document.getElementById("myTopnav");
+      //   if (x.className === "topnav") {
+      //     x.className += " responsive";
+      //   } else {
+      //     x.className = "topnav";
+      //   }
+      // }
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-FZLDLTHQZS");
+    </script>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>
+          <h1><i>Chris Evans Fan Club</i></h1>
+        </td>
+        <!-- <td><img src="img/banner.jpg" height="75" /></td>
+        <td><img src="img/banner2.jpg" height="75" /></td>
+        <td><img src="img/banner3.jpg" height="75" /></td>
+        <td><img src="img/banner4.jpg" height="75" /></td> -->
+        <td>
+          <div id="flex-container">
+            <!-- <img src="img/banner.jpg" height="75" />
+            <img src="img/banner2.jpg" height="75" />
+            <img src="img/banner3.jpg" height="75" />
+            <img src="img/banner4.jpg" height="75" /> -->
+            <img src="img/banner.jpg" />
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <div class="topnav" id="myTopnav">
+      <a class="active" href="index.html">Home</a>
+      <a href="About.html">About</a>
+      <a href="Registration.html">Registration</a>
+      <a href="ContactUs.html">Contact Us</a>
+      <!-- <a
+        href="javascript:void(0);"
+        style="font-size: 15px"
+        class="icon"
+        onclick="myFunction()"
+        >&#9776;</a
+      > -->
+    </div>
+    <!--Content-->
+    <h1>
+      Welcome! Let's join the club to talk about
+      <a href="https://en.wikipedia.org/wiki/Chris_Evans_(actor)">Chris Evans</a
+      >!!!
+    </h1>
+    <!-- <table>
+      <tr>
+        <td width="50%">
+          <img src="img/marvel.jpg" width="500" height="300" />
+        </td>
+        <td width="50%">
+          <img src="img/avengers.jpg" width="500" height="300" />
+        </td>
+      </tr>
+    </table> -->
+
+    <!--Discussion Board-->
+    <form id="discussion-form" action="javascript:add();">
+      <h3>Discussion Board:</h3>
+      <hr />
+      <textarea
+        name="content"
+        placeholder="write something...."
+        style="width: 100%"
+        rows="4"
+        required
+      ></textarea
+      ><br />
+      Your nickname:
+      <input type="text" id="nickname" name="nickname" required />
+      <input type="submit" value="Submit" />
+    </form>
+    <div id="discussion">
+      <hr />
+      John: <br />
+      I love him very much.
+      <hr />
+    </div>
+    <!---->
+    <p>
+      Our Club hold on 2021 which aim to discuss the marvel hero that you like!
+      Come and
+      <a href="Registration.html" style="text-decoration: underline">join us</a>
+      now. You can enjoy the movie for free!
+    </p>
+    <div id="flex-container">
+      <!-- <img src="img/marvel.jpg" width="500" height="300" /> -->
+      <img src="img/banner2.jpg" width="500" height="300" />
+
+      <img src="img/banner3.jpg" width="500" height="300" />
+    </div>
+  </body>
+</html>
