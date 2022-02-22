@@ -13,13 +13,14 @@
       function registration() {
         var frm = document.getElementById("registration-form");
         var tel = document.getElementById("tel");
-        var id = document.getElementById("ID");
+        //var id = document.getElementById("ID");
         var name = document.getElementById("name");
 
-        if (id.value.length != 9) {
-          id.setCustomValidity("9 numbers required");
-          id.reportValidity();
-        } else if (tel.value.length != 8) {
+        //if (id.value.length != 9) {
+          //id.setCustomValidity("9 numbers required");
+          //id.reportValidity();
+        //} else 
+		if (tel.value.length != 8) {
           tel.setCustomValidity("8 numbers required");
           tel.reportValidity();
         } else {
@@ -107,7 +108,7 @@
 
       function checkEmpty() {
         var tel = document.getElementById("tel");
-        var id = document.getElementById("ID");
+        //var id = document.getElementById("ID");
         var name = document.getElementById("name");
         if (name.value != "") {
           name.setCustomValidity("");
@@ -115,9 +116,9 @@
         if (tel.value != "") {
           tel.setCustomValidity("");
         }
-        if (id.value != "") {
-          id.setCustomValidity("");
-        }
+        //if (id.value != "") {
+        //  id.setCustomValidity("");
+        //}
         return true;
       }
 
@@ -177,7 +178,7 @@
               />
             </td>
           </tr>
-          <tr>
+          <!--<tr>
             <td style="text-align: left">Student ID:<span>*</span></td>
             <td>
               &nbsp;&nbsp;
@@ -190,7 +191,7 @@
                 required
               />
             </td>
-          </tr>
+          </tr>-->
           <tr>
             <td style="text-align: left">Telephone:<span>*</span></td>
             <td>
@@ -220,7 +221,7 @@
     </form>
     <!--Form End-->
     <!--Content-->
-    <img src="img/IwantU.jpg" height="275" />
+    <!--<img src="img/IwantU.jpg" height="275" />-->
     <!---->
   </body>
 </html>
